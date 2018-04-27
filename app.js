@@ -1,6 +1,3 @@
-// For heroku deployment later
-// heroku config: set GEOCODE_API_KEY = AIzaSyCqr3beuItooosOYesdYVXJ4BoD4qbmu8o
-
 // Packages 
 require('dotenv').config(); // dotenv package
 
