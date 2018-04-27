@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- link bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- link main css -->    
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <!-- Make site responsive on mobile and tablet-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YelpCamp</title>
+</head>
+<body>
+
+    <!-- Navbar Created using bootstrap classes -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">YelpCamp</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <% if(!currentUser){ %>
+                        <!-- if not defined, show login and register -->
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <!-- if defined show user logout and information -->
+                        <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- show error and success messages -->
+<div class="container">
+    <!-- Check if error and if there is an error -->
+    <% if(error && error.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+    <% } %> 
+    <% if(success && success.length > 0) { %> 
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+    <% } %> 
+</div>
+
+    
+
+                    

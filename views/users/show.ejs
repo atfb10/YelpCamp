@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1><%= foundUser.username %></h1>
+            <div class="thumbnail">
+                <img src="<%= foundUser.avatar %>" alt="user profile image">
+            </div>
+            <h4><%= foundUser.username %>'s Campgrounds</h4>
+            <!-- for every campground user has made, show title and image -->
+            <ul>
+                <% for(var i = 0; i < campgrounds.length; i++) { %> 
+                        <li><a href="/campgrounds/<%= campgrounds[i].id %>"><%= campgrounds[i].name %></a></li>
+                <% } %> 
+            </ul> 
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

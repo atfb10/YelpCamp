@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+
+<!-- Put everything in div with class container from Bootstrap -->
+<div class="container">
+    <!-- give special message to admins -->
+    <% if(currentUser && currentUser.isAdmin) { %> 
+    <h4>With Great Adminstrative Powers, Comes Great Responsibility</h4>
+    <% } %>
+    <header class="jumbotron" id="index-container">
+    <!-- Put header in div with class container from Bootstrap for text-->
+            <div class="container">
+                <!-- if not signed in, typical welcome -->
+                <% if(!currentUser){ %> 
+                    <h1><span class="glyphicon glyphicon-tent"></span>Welcome to YelpCamp!</h1>
+                    <p>View our user's favorite campgrounds from all over the world</p>
+                <% } else { %> 
+                    <!-- if signed in, customized on campgrounds page -->
+                    <h1><span class="glyphicon glyphicon-tent"></span>Welcome to YelpCamp <%= currentUser.username %></h1>
+                    <p>View our user's favorite campgrounds from all over the world, or add your own!</p>
+                <% } %> 
+                <!-- <p>View our hand-selected campgrounds</p> -->
+            <p>
+                <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+            <p/>
+            <p>
+                <form action="/campgrounds" method="GET" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Campground Search" class="form-control">
+                        <input type="submit" value="Search" class="btn btn-default">
+                    </div>
+                </form>
+            </p>
+        </div>
+    </header>
+
+    <!-- Loop through to display all campground information -->
+    <!-- Divs contain useful bootstrap classes -->
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;"> <!-- The style tag makes all images the same height and width -->
+        <% for(var i = 0; i < campgrounds.length; i++) { %> 
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%=campgrounds[i].image %>"> 
+                    <div class="caption">
+                        <h4> <%=campgrounds[i].name %></h4>
+                    </div>
+                    <p><a href="/campgrounds/<%= campgrounds[i]._id %>" class="btn btn-primary">More Info</a></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+    <a href="/campgrounds">View All</a>
+</div>
+
+
+
+<% include ../partials/footer %>

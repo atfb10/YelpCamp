@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">New Password</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/reset/<%= token %>" method="POST">
+                <div class="form-group">
+                    <label>New Password</label> 
+                    <input class="form-control" type="password" value="" name="password" autofocus placeholder="Updated Password">
+                </div>
+                <div class="form-group">
+                <div class="form-group">
+                    <label>Verify Password</label> 
+                    <input class="form-control" type="password" value="" name="confirm" autofocus placeholder="Confirm Password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary">Create New Password</button>
+                </div>
+                <a href="/campgrounds">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
