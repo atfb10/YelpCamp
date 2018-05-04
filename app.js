@@ -52,7 +52,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // middleware function to pass user information to each route
 app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
+    res.locals.currentUser = req.User; // note to self, if all goes wrong, change to lowercase user
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();

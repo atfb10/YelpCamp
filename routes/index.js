@@ -10,7 +10,7 @@ var nodemailer = require("nodemailer"),
     async = require("async"),
     crypto = require("crypto");
 
-// User Model
+// Models
 var User = require("../models/user"),
     Campground = require("../models/campground");
 
@@ -68,7 +68,7 @@ router.post("/login", passport.authenticate("local", {
     // redirect routes upon success or failure to login
     successRedirect: "/campgrounds",
     failureRedirect: "/login"
-}), function (req, res) { });
+}), function (req, res) {});
 
 // Handle logout logic
 router.get("/logout", function (req, res) {
