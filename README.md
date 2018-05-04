@@ -13,7 +13,7 @@ The site allows users to enter campgrounds, post comments, view other profiles, 
 
 ### How to Run 
 * Install Listed Above
-* Create data directory containing another director titled db for mongo
+* Create 'data' directory containing another director titled 'db' in 'c' drive for mongo
 * Download or clone the repository
 * Install dependencies
 * Navigate into the main folder of the repository
