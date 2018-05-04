@@ -1,13 +1,13 @@
 # YelpCamp
 Project completed as part of online Udemy Course Web Developer Bootcamp
 
-## The Pong Sample
+## Website Functionality
 The site allows users to enter campgrounds, post comments, view other profiles, and attach locations to campgrounds
 
 ### Requirements
 * [NodeJs](https://nodejs.org/en/)
 * [Mongodb](https://www.mongodb.com/)
-* An IDE and Terminal; personal preference below
+* An IDE and Terminal; personal preferences below
 * [VS Code](http://www.codeblocks.org/)
 * [Git Bash](https://git-scm.com/downloads)
 
