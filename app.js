@@ -63,9 +63,8 @@ app.use("/campgrounds", campgroundRoutes); // "/campgrounds", appends this to ev
 app.use("/campgrounds/:id/comments", commentRoutes); // "/campgrounds/:id/comments", appends this to everything in comments.js so it doesn't need to be typed
 app.use(indexRoutes); // Important: Put index root last because it has * which overrides all over routes
 
-
 // Setup Port 3000 to be server port
-app.listen(3000, process.env.IP, function() {
+app.listen(process.env.PORT || 3000, process.env.IP, function() {
     console.log("The YelpCamp Server Has Started!");
 });
 

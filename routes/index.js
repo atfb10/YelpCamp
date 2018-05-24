@@ -71,7 +71,7 @@ router.post("/login", passport.authenticate("local", {
 }), function (req, res) {});
 
 // Handle logout logic
-router.get("/logout", function (req, res) {
+router.get("/logout", function(req, res) {
     // end user session
     req.logout();
     // Show message
