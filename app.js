@@ -24,8 +24,8 @@ var campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
 
 // standard configurations
-mongoose.connect("mongodb://localhost/yelp_camp"); // local connection
-// mongoose.connect("mongodb://adam:yelpcamp@ds133920.mlab.com:33920/adams_yelpcamp"); // where mongo is connected
+// mongoose.connect("mongodb://localhost/yelp_camp"); // local connection
+mongoose.connect("mongodb://adam:yelpcamp@ds133920.mlab.com:33920/adams_yelpcamp"); // where mongo is connected
 app.use(bodyParser.urlencoded({ extended: true })); // body parser
 app.set("view engine", "ejs"); // view engine is embedded js
 app.use(express.static(__dirname + "/public")); // find and connect custom stylings
@@ -53,7 +53,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // middleware function to pass user information to each route
 app.use(function(req, res, next){
-    res.locals.currentUser = req.user; // note to self, if all goes wrong, change to lowercase user
+    res.locals.currentUser = req.user; 
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
