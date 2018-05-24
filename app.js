@@ -23,8 +23,9 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
 
-// standard configs
-mongoose.connect("mongodb://localhost/yelp_camp"); // where mongo is connected
+// standard configurations
+mongoose.connect("mongodb://localhost/yelp_camp"); // local connection
+// mongoose.connect("mongodb://adam:yelpcamp@ds133920.mlab.com:33920/adams_yelpcamp"); // where mongo is connected
 app.use(bodyParser.urlencoded({ extended: true })); // body parser
 app.set("view engine", "ejs"); // view engine is embedded js
 app.use(express.static(__dirname + "/public")); // find and connect custom stylings
@@ -52,7 +53,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // middleware function to pass user information to each route
 app.use(function(req, res, next){
-    res.locals.currentUser = req.User; // note to self, if all goes wrong, change to lowercase user
+    res.locals.currentUser = req.user; // note to self, if all goes wrong, change to lowercase user
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
@@ -63,7 +64,7 @@ app.use("/campgrounds", campgroundRoutes); // "/campgrounds", appends this to ev
 app.use("/campgrounds/:id/comments", commentRoutes); // "/campgrounds/:id/comments", appends this to everything in comments.js so it doesn't need to be typed
 app.use(indexRoutes); // Important: Put index root last because it has * which overrides all over routes
 
-// Setup Port 3000 to be server port
+// Setup Port 3000 to be server port locally and whatever port heroku servers want to use
 app.listen(process.env.PORT || 3000, process.env.IP, function() {
     console.log("The YelpCamp Server Has Started!");
 });
