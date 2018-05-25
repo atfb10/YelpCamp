@@ -11,10 +11,11 @@ The site allows users to enter campgrounds, post comments, view other profiles, 
 * [VS Code](http://www.codeblocks.org/)
 * [Git Bash](https://git-scm.com/downloads)
 
-### How to Run 
+### How to Run Locally
 * Install Listed Above
 * Create 'data' directory containing another director titled 'db' in 'c' drive for mongo
 * Download or clone the repository
 * Install dependencies
+* Create .env file and necessary variables
 * Navigate into the main folder of the repository
 * Type node app.js and hit enter and visit the localhost port
