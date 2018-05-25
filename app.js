@@ -23,9 +23,8 @@ var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
 
-// standard configurations
-// mongoose.connect("mongodb://localhost/yelp_camp"); // local connection
-mongoose.connect("mongodb://adam:yelpcamp@ds133920.mlab.com:33920/adams_yelpcamp"); // where mongo is connected
+mongoose.connect(process.env.DEVELOPMENTDATABASEURL); // develop db connection
+mongoose.connect(process.env.PRODUCTIONDATABASEURL); // production db connection
 app.use(bodyParser.urlencoded({ extended: true })); // body parser
 app.set("view engine", "ejs"); // view engine is embedded js
 app.use(express.static(__dirname + "/public")); // find and connect custom stylings
@@ -68,7 +67,3 @@ app.use(indexRoutes); // Important: Put index root last because it has * which o
 app.listen(process.env.PORT || 3000, process.env.IP, function() {
     console.log("The YelpCamp Server Has Started!");
 });
-
-
-
-
